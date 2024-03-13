@@ -1,0 +1,41 @@
+<table mat-table [dataSource]="dataSource">
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let item">
+      <ng-container *ngIf="!item.isEditing; else editName">
+        {{ item.name }}
+      </ng-container>
+      <ng-template #editName>
+        <input matInput type="text" [(ngModel)]="item.name" (keyup.enter)="saveItem(item)" (keyup.escape)="cancelEdit(item)">
+      </ng-template>
+    </td>
+  </ng-container>
+
+  <!-- Age Column -->
+  <ng-container matColumnDef="age">
+    <th mat-header-cell *matHeaderCellDef>Age</th>
+    <td mat-cell *matCellDef="let item">
+      <ng-container *ngIf="!item.isEditing; else editAge">
+        {{ item.age }}
+      </ng-container>
+      <ng-template #editAge>
+        <input matInput type="number" [(ngModel)]="item.age" (keyup.enter)="saveItem(item)" (keyup.escape)="cancelEdit(item)">
+      </ng-template>
+    </td>
+  </ng-container>
+
+  <!-- Edit Column -->
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let item">
+      <button mat-icon-button (click)="toggleEdit(item)">
+        <mat-icon>{{ item.isEditing ? 'save' : 'edit' }}</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
