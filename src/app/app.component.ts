@@ -1,21 +1,9 @@
-import { Component } from "@angular/core";
-import { EmpgridComponent } from "./empgrid/empgrid.component";
-//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-export interface UserData {
-  name: string;
-  date:Date;
-  age: number;
-  isEditing?: boolean;
-}
-
+import { Component } from '@angular/core';
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'],
-    imports: [EmpgridComponent]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  
+  title = 'matApp';
 }
-  
