@@ -6,10 +6,6 @@ import { AppComponent } from './app.component';
 import {MatTableModule} from '@angular/material/table'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MattbComponent } from './mattb/mattb.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 
 @NgModule({
   declarations: [
@@ -19,9 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,MatFormFieldModule,MatTableModule,MatDatepickerModule,MatNativeDateModule,BrowserAnimationsModule
+    AppRoutingModule,MatFormFieldModule,MatTableModule,
   ],
-  providers: [MatDatepickerModule],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
