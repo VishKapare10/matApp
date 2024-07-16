@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource, MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table'
@@ -17,9 +17,11 @@ export interface UserData {
 }
 
 @Component({
-  selector: 'app-mattb',
-  templateUrl: './mattb.component.html',
-  styleUrl: './mattb.component.css'
+    selector: 'app-mattb',
+    templateUrl: './mattb.component.html',
+    styleUrl: './mattb.component.css',
+    standalone: true,
+    imports: [MatTable, MatColumnDef, MatHeaderCellDef, MatHeaderCell, MatCellDef, MatCell, MatHeaderRowDef, MatHeaderRow, MatRowDef, MatRow]
 })
 export class MattbComponent {
 
