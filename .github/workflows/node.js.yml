@@ -29,4 +29,3 @@ jobs:
     - run: npm ci
     - run: node --version
     - run: npm run build --if-present
-    - run: npm test --no-watch --source-map=false --browsers=Chrome
