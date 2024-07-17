@@ -2,6 +2,7 @@ import { OnInit, AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
+import { EventManager } from '@angular/platform-browser';
 
 
 // app.component.ts
@@ -49,27 +50,32 @@ export class MattbComponent implements OnInit, AfterViewInit {
     throw new Error('Method not implemented.');
   }
 
-  applyFilter(event: Event, column: string) {
+  applyFilter(event: Event) {
 
-    const filterValue = (event.target as HTMLInputElement).value
-      .trim()
-      .toLowerCase();
-    if (!filterValue) {
-      this.filteredDataSource = originalData;
-      this.dataSource.data = originalData;
-      return;
-    }
+    let filterValue2 = (event.target as HTMLInputElement).value;
+    filterValue2 = filterValue2.trim();
+    filterValue2 = filterValue2.toLowerCase();
+    this.dataSource.filter = filterValue2;
 
-    this.dataSource.data = this.dataSource.data.filter((data) => {
-      if (column === 'name') {
-        return data[column].toLowerCase().includes(filterValue);
-      } else if (column === 'age') {
-        return data[column].toString().toLowerCase().includes(filterValue);
-      } else if (column === 'gender') {
-        return data[column].toLowerCase().includes(filterValue);
-      }
-      // Add a default return statement
-      return false; // or any other default value
-    });
+    // const filterValue = (event.target as HTMLInputElement).value
+    //   .trim()
+    //   .toLowerCase();
+    // if (!filterValue) {
+    //   this.filteredDataSource = originalData;
+    //   this.dataSource.data = originalData;
+    //   return;
+    // }
+
+    // this.dataSource.data = this.dataSource.data.filter((data) => {
+    //   if (column === 'name') {
+    //     return data[column].toLowerCase().includes(filterValue);
+    //   } else if (column === 'age') {
+    //     return data[column].toString().toLowerCase().includes(filterValue);
+    //   } else if (column === 'gender') {
+    //     return data[column].toLowerCase().includes(filterValue);
+    //   }
+    //   // Add a default return statement
+    //   return false; // or any other default value
+    // });
   }
 }
