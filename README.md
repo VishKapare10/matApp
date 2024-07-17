@@ -1,5 +1,4 @@
 [![Node.js CI](https://github.com/VishKapare10/matApp/actions/workflows/node.js.yml/badge.svg)](https://github.com/VishKapare10/matApp/actions/workflows/node.js.yml)
-
 # MatApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
